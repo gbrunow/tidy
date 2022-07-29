@@ -28,12 +28,12 @@
     ],
     "title": "Arrange Artboards"
   },
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Arrange artboards hierarchically depending on their name (based on the Sketch Slash naming pattern).",
   "name": "arrange-artboards-hierarchically",
   "identifier": "arrange-artboards-hierarchically",
   "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "appcast": "https://raw.githubusercontent.com/gbrunow/arrange-artboards-hierarchically/master/.appcast.xml",
   "author": "Gui Brunow Gomes",
-  "authorEmail": "gbrunow@apple.com"
+  "authorEmail": "gbrunow@outlook.com"
 }

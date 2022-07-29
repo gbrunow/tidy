@@ -9,7 +9,7 @@
     "sketch": ">=49.0"
   },
   "skpm": {
-    "name": "arrange-artboards-hierarchically",
+    "name": "Arrange Artboards",
     "manifest": "src/manifest.json",
     "main": "arrange-artboards-hierarchically.sketchplugin",
     "assets": [
