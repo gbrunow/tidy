@@ -1,18 +1,32 @@
 {
   "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
-  "icon": "icon.png",
   "commands": [
     {
-      "name": "my-command",
-      "identifier": "arrange-artboards-hierarchically.my-command-identifier",
-      "script": "__my-command.js"
+      "handlers": {
+        "run": "ArrangeArtboardsInColumns"
+      },
+      "identifier": "arrange-artboards-hierarchically.arrange-in-rows",
+      "name": "Arrange In Columns",
+      "script": "__main.js",
+      "shortcut": "ctrl shift v"
+    },
+    {
+      "handlers": {
+        "run": "ArrangeArtboardsInRows"
+      },
+      "identifier": "arrange-artboards-hierarchically.arrange-in-columns",
+      "name": "Arrange In Rows",
+      "script": "__main.js",
+      "shortcut": "ctrl shift h"
     }
   ],
+  "icon": "icon.png",
   "menu": {
-    "title": "arrange-artboards-hierarchically",
     "items": [
-      "arrange-artboards-hierarchically.my-command-identifier"
-    ]
+      "arrange-artboards-hierarchically.arrange-in-columns",
+      "arrange-artboards-hierarchically.arrange-in-rows"
+    ],
+    "title": "Arrange Artboards"
   },
   "version": "0.1.0",
   "description": "",
