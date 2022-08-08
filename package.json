@@ -4,7 +4,7 @@
     "url": "https://github.com/gbrunow/arrange-artboards-hierarchically"
   },
   "description": "Arrange artboards hierarchically depending on their name (based on the Sketch Slash naming pattern).",
-  "version": "2.0.0-beta",
+  "version": "2.0.0-alpha.0",
   "engines": {
     "sketch": ">=49.0"
   },
