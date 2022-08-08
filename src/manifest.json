@@ -3,28 +3,18 @@
   "commands": [
     {
       "handlers": {
-        "run": "ArrangeArtboardsInColumns"
+        "run": "arrangeAllArtboards"
       },
-      "identifier": "arrange-artboards-hierarchically.arrange-in-rows",
-      "name": "Arrange In Columns",
+      "identifier": "arrange-artboards-hierarchically.arrange-all",
+      "name": "Arrange All Artboards",
       "script": "./main.js",
-      "shortcut": "ctrl shift v"
-    },
-    {
-      "handlers": {
-        "run": "ArrangeArtboardsInRows"
-      },
-      "identifier": "arrange-artboards-hierarchically.arrange-in-columns",
-      "name": "Arrange In Rows",
-      "script": "./main.js",
-      "shortcut": "ctrl shift h"
+      "shortcut": "ctrl a"
     }
   ],
   "icon": "icon.png",
   "menu": {
     "items": [
-      "arrange-artboards-hierarchically.arrange-in-columns",
-      "arrange-artboards-hierarchically.arrange-in-rows"
+      "arrange-artboards-hierarchically.arrange-all"
     ],
     "title": "Arrange Artboards"
   }
