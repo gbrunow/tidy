@@ -1,17 +1,21 @@
 import { Document, UI } from "sketch";
 
+import { getAdjcencyList, getRoots } from "./helpers";
+
 // documentation: https://developer.sketchapp.com/reference/api/
 
 const HORIZONTAL_GUTTER = 100;
-const VERTICAL_GUTTER = 30;
+const VERTICAL_GUTTER = 100;
 
 const alreadyProcessed = [];
 let artboardList = [];
 
 export const ArrangeArtboardsInColumns = () => {
   artboardList = getFullArtboardList();
-  DrawArtboards(artboardList);
-  zoomToView();
+  arrange(artboardList);
+
+  // DrawArtboards(artboardList);
+  // zoomToView();
   UI.message("Artboards arranged ✅");
 };
 
@@ -21,6 +25,49 @@ export const ArrangeArtboardsInRows = () => {
   zoomToView();
   UI.message("Artboards arranged ✅");
 };
+
+const arrange = (artboards) => {
+  artboards = artboards.sort((a, b) => {
+    const slashesA = (a.name.match(/\//g) || []).length;
+    const slashesB = (b.name.match(/\//g) || []).length;
+
+    if (slashesA !== slashesB) {
+      return slashesA - slashesB;
+    } else {
+      return a.name < b.name ? -1 : 1;
+    }
+  })
+
+  const adj = getAdjcencyList(artboards);
+  const roots = getRoots(artboards, adj);
+
+  const location = { x: 0, y: 0 };
+  for (const root of roots) {
+    placeNode(root, '');
+  }
+}
+
+const placeNode = (node, s) => {
+  let increment = "";
+  if (node.value) {
+    for (const artboard of node.value) {
+      console.log(`${s} ${artboard.name}`)
+    }
+    increment = " . ";
+  }
+
+  for (const child of node.children) {
+    placeNode(child, s + increment);
+  }
+}
+
+const getArtboards = () => {
+  const artboards = Document.getSelectedDocument()
+    .selectedPage.layers.filter(layerIsArtboard)
+    .sort(sortByName);
+
+}
+
 
 const sortByName = (a, b) => (a.name === b.name ? 0 : a.name < b.name ? -1 : 1);
 
