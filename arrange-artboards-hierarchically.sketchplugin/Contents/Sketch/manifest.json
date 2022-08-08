@@ -18,7 +18,7 @@
     ],
     "title": "Arrange Artboards"
   },
-  "version": "2.0.0-beta",
+  "version": "2.0.0-alpha.1",
   "description": "Arrange artboards hierarchically depending on their name (based on the Sketch Slash naming pattern).",
   "name": "Arrange Artboards",
   "identifier": "Arrange Artboards",
