@@ -1,61 +1,69 @@
 import { Document, UI } from "sketch";
 
-import { getAdjcencyList, getGutter, getRoots, layerIsArtboard, sortByName } from "./helpers";
+import { arrangeAllArtboards } from "./arrange";
 
 // documentation: https://developer.sketchapp.com/reference/api/
 
-export const arrangeAllArtboards = () => {
-  const page = Document.getSelectedDocument().selectedPage;
-  const artboards = page.layers.filter(layerIsArtboard).sort(sortByName);
-  const gutter = getGutter(artboards);
+export const tidyUpCurrent = () => runner(
+  [Document.getSelectedDocument().selectedPage],
+  'Organized page',
+  tidyUp,
+);
 
-  arrange(artboards, gutter);
+export const tidyUpAll = () => runner(
+  Document.getSelectedDocument().pages,
+  'Organized all pages',
+  tidyUp,
+);
+export const arrangeCurrent = () => runner(
+  [Document.getSelectedDocument().selectedPage],
+  'Arranged page',
+  arrange,
+);
 
-  UI.message("Artboards arranged ✅");
-};
+export const arrangeAll = () => runner(
+  Document.getSelectedDocument().pages,
+  'Arranged all pages',
+  arrange,
+);
+export const sortCurrent = () => runner(
+  [Document.getSelectedDocument().selectedPage],
+  'Sorted page',
+  sort,
+);
 
-const arrange = (artboards, gutter) => {
-  artboards = artboards.sort((a, b) => {
-    const slashesA = (a.name.match(/\//g) || []).length;
-    const slashesB = (b.name.match(/\//g) || []).length;
+export const sortAll = () => runner(
+  Document.getSelectedDocument().pages,
+  'Sorted all pages',
+  sort,
+);
 
-    if (slashesA !== slashesB) {
-      return slashesA - slashesB;
-    } else {
-      return a.name < b.name ? -1 : 1;
-    }
-  })
+const runner = (pages, message, handler) => {
+  for (const page of pages) {
+    handler(page);
+  }
+  UI.message(`${message} ✅`);
+}
 
-  const adj = getAdjcencyList(artboards);
-  const roots = getRoots(artboards, adj);
-  let maxY = 0;
+const tidyUp = (page) => {
+  sort(page);
+  arrange(page);
+}
 
-  const placeNode = (node, x = 0, y = 0) => {
-    let deltaX = 0;
-    let deltaY = 0;
-    let maxHeight = 0;
+const arrange = (page) => {
+  arrangeAllArtboards(page);
+}
 
-    if (node.value) {
-      for (const artboard of node.value) {
-        artboard.frame.x = x + deltaX;
-        artboard.frame.y = y + deltaY;
-        deltaX += gutter + artboard.frame.width;
-        maxHeight = Math.max(maxHeight, artboard.frame.height);
-      }
-    } else {
-      // deltaX += gutter;
-    }
+const sort = (page) => {
+  const order = page.layers.map(l => l.name).sort((a, b) => a === b ? 0 : (a > b ? -1 : 1));
+  const orderMap = {};
 
-    for (const child of node.children) {
-      maxY = Math.max(y + deltaY, maxY);
-      placeNode(child, x + deltaX, maxY);
-    }
-
-    deltaY = Math.max(gutter + maxHeight, deltaY);
-    maxY = Math.max(y + deltaY, maxY);
+  for (let i = 0; i < order.length; i++) {
+    orderMap[order[i]] = i;
   }
 
-  for (const root of roots) {
-    placeNode(root, 0, maxY + gutter * 5);
+  for (const layer of page.layers) {
+    layer.index = orderMap[layer.name];
   }
 }
+
