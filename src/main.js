@@ -1,6 +1,6 @@
 import { Document, UI } from "sketch";
 
-import { getAdjcencyList, getGutter, getRoots, layerIsArtboard, sortByName } from "./helpers";
+import { getGutter, getHeads, layerIsArtboard, sortByName } from "./helpers";
 
 // documentation: https://developer.sketchapp.com/reference/api/
 
@@ -26,36 +26,53 @@ const arrange = (artboards, gutter) => {
     }
   })
 
-  const adj = getAdjcencyList(artboards);
-  const roots = getRoots(artboards, adj);
+  const heads = getHeads(artboards);
+
   let maxY = 0;
 
-  const placeNode = (node, x = 0, y = 0) => {
+  const place = (node, x = 0, y = 0) => {
     let deltaX = 0;
     let deltaY = 0;
     let maxHeight = 0;
 
-    if (node.value) {
-      for (const artboard of node.value) {
-        artboard.frame.x = x + deltaX;
-        artboard.frame.y = y + deltaY;
-        deltaX += gutter + artboard.frame.width;
-        maxHeight = Math.max(maxHeight, artboard.frame.height);
-      }
-    } else {
-      // deltaX += gutter;
+    for (const artboard of node.value) {
+      artboard.frame.x = x + deltaX;
+      artboard.frame.y = y + deltaY;
+      deltaX += gutter + artboard.frame.width;
+      maxHeight = Math.max(maxHeight, artboard.frame.height);
     }
 
     for (const child of node.children) {
       maxY = Math.max(y + deltaY, maxY);
-      placeNode(child, x + deltaX, maxY);
+      place(child, x + deltaX, maxY);
     }
 
     deltaY = Math.max(gutter + maxHeight, deltaY);
     maxY = Math.max(y + deltaY, maxY);
   }
 
-  for (const root of roots) {
-    placeNode(root, 0, maxY + gutter * 5);
+  for (const head of heads) {
+    place(head, 0, maxY + gutter);
   }
+
 }
+
+// const placeNodeArtboards = (artboards, gutter, x = 0, y = 0) => {
+//   let side = 0;
+//   let top = 0;
+//   let bottom = 0;
+
+//   for (let i = 0; i < artboards.length; i++) {
+//     const artboard = artboards[i];
+//     artboard.frame.x = x;
+//     artboard.frame.y = y + top;
+//     side = Math.max(side, artboard.frame.width + gutter);
+//     bottom += artboard.frame.height + gutter;
+
+//     if (i < artboards.length - 1) {
+//       top += artboard.frame.height + gutter;
+//     }
+//   }
+
+//   return { side, top, bottom };
+// }

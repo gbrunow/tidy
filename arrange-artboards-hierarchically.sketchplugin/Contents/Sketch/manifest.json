@@ -8,7 +8,7 @@
       "identifier": "arrange-artboards-hierarchically.arrange-all",
       "name": "Arrange All Artboards",
       "script": "__main.js",
-      "shortcut": "ctrl a"
+      "shortcut": "ctrl t"
     }
   ],
   "icon": "icon.png",
