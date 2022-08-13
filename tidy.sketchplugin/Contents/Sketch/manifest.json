@@ -7,7 +7,7 @@
       },
       "identifier": "tidy.this-page",
       "name": "Tidy Up This Page",
-      "script": "./main.js",
+      "script": "__main.js",
       "shortcut": "control command t"
     },
     {
@@ -16,7 +16,7 @@
       },
       "identifier": "tidy.all",
       "name": "Tidy Up All Pages",
-      "script": "./main.js",
+      "script": "__main.js",
       "shortcut": "ctrl t"
     },
     {
@@ -25,7 +25,7 @@
       },
       "identifier": "tidy.arrange-page-artboards",
       "name": "Arrange Page Artboards",
-      "script": "./main.js",
+      "script": "__main.js",
       "shortcut": "control command a"
     },
     {
@@ -34,7 +34,7 @@
       },
       "identifier": "tidy.arrange-all-artboards",
       "name": "Arrange All Artboards",
-      "script": "./main.js",
+      "script": "__main.js",
       "shortcut": "control 1"
     },
     {
@@ -43,7 +43,7 @@
       },
       "identifier": "tidy.sort-page",
       "name": "Sort Page Artboards",
-      "script": "./main.js",
+      "script": "__main.js",
       "shortcut": "control command o"
     },
     {
@@ -52,7 +52,7 @@
       },
       "identifier": "tidy.sort-all",
       "name": "Sort All Artboards",
-      "script": "./main.js",
+      "script": "__main.js",
       "shortcut": "control o"
     }
   ],
@@ -67,5 +67,13 @@
       "tidy.sort-page"
     ],
     "title": "Tidy"
-  }
+  },
+  "version": "1.0.0-alpha.1",
+  "description": "Keep your sketch files Tidy.",
+  "name": "Tidy",
+  "identifier": "Tidy",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/gbrunow/arrange-artboards-hierarchically/master/.appcast.xml",
+  "author": "Gui Brunow Gomes",
+  "authorEmail": "gbrunow@outlook.com"
 }
