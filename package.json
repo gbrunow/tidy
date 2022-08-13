@@ -1,7 +1,7 @@
 {
   "name": "tidy",
   "repository": {
-    "url": "https://github.com/gbrunow/arrange-artboards-hierarchically"
+    "url": "https://github.com/gbrunow/tidy"
   },
   "description": "Keep your sketch files Tidy.",
   "version": "1.0.0-alpha.2",
