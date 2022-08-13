@@ -5,7 +5,7 @@
       "handlers": {
         "run": "tidyUpCurrent"
       },
-      "identifier": "tidy-up.this-page",
+      "identifier": "tidy.this-page",
       "name": "Tidy Up This Page",
       "script": "__main.js",
       "shortcut": "control command t"
@@ -14,7 +14,7 @@
       "handlers": {
         "run": "tidyUpAll"
       },
-      "identifier": "tidy-up.all",
+      "identifier": "tidy.all",
       "name": "Tidy Up All Pages",
       "script": "__main.js",
       "shortcut": "ctrl t"
@@ -23,7 +23,7 @@
       "handlers": {
         "run": "arrangeCurrent"
       },
-      "identifier": "tidy-up.arrange-page-artboards",
+      "identifier": "tidy.arrange-page-artboards",
       "name": "Arrange Page Artboards",
       "script": "__main.js",
       "shortcut": "control command a"
@@ -32,7 +32,7 @@
       "handlers": {
         "run": "arrangeAll"
       },
-      "identifier": "tidy-up.arrange-all-artboards",
+      "identifier": "tidy.arrange-all-artboards",
       "name": "Arrange All Artboards",
       "script": "__main.js",
       "shortcut": "control 1"
@@ -41,7 +41,7 @@
       "handlers": {
         "run": "sortCurrent"
       },
-      "identifier": "tidy-up.sort-page",
+      "identifier": "tidy.sort-page",
       "name": "Sort Page Artboards",
       "script": "__main.js",
       "shortcut": "control command o"
@@ -50,7 +50,7 @@
       "handlers": {
         "run": "sortAll"
       },
-      "identifier": "tidy-up.sort-all",
+      "identifier": "tidy.sort-all",
       "name": "Sort All Artboards",
       "script": "__main.js",
       "shortcut": "control o"
@@ -59,19 +59,19 @@
   "icon": "icon.png",
   "menu": {
     "items": [
-      "tidy-up.all",
-      "tidy-up.this-page",
-      "tidy-up.arrange-all-artboards",
-      "tidy-up.arrange-page-artboards",
-      "tidy-up.sort-all",
-      "tidy-up.sort-page"
+      "tidy.all",
+      "tidy.this-page",
+      "tidy.arrange-all-artboards",
+      "tidy.arrange-page-artboards",
+      "tidy.sort-all",
+      "tidy.sort-page"
     ],
-    "title": "Tidy Up"
+    "title": "Tidy"
   },
-  "version": "2.0.0-alpha.1",
-  "description": "Arrange artboards hierarchically depending on their name (based on the Sketch Slash naming pattern).",
-  "name": "Tidy Up",
-  "identifier": "Tidy Up",
+  "version": "1.0.0-alpha.1",
+  "description": "Keep your sketch files Tidy.",
+  "name": "Tidy",
+  "identifier": "Tidy",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com/gbrunow/arrange-artboards-hierarchically/master/.appcast.xml",
   "author": "Gui Brunow Gomes",

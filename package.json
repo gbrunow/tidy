@@ -1,17 +1,17 @@
 {
-  "name": "tidy-up",
+  "name": "tidy",
   "repository": {
     "url": "https://github.com/gbrunow/arrange-artboards-hierarchically"
   },
-  "description": "Arrange artboards hierarchically depending on their name (based on the Sketch Slash naming pattern).",
+  "description": "Keep your sketch files Tidy.",
   "version": "1.0.0-alpha.1",
   "engines": {
     "sketch": ">=49.0"
   },
   "skpm": {
-    "name": "Tidy Up",
+    "name": "Tidy",
     "manifest": "src/manifest.json",
-    "main": "tidy-up.sketchplugin",
+    "main": "tidy.sketchplugin",
     "assets": [
       "assets/**/*"
     ],
