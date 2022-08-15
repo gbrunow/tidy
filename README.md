@@ -1,4 +1,4 @@
-# arrange-artboards-hierarchically
+# Tidy
 
 ## Installation
 
