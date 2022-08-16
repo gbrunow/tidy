@@ -1,8 +1,7 @@
 # Tidy
 
 ## Installation
-
-- [Download](../../releases/latest/download/arrange-artboards-hierarchically.sketchplugin.zip) the latest release of the plugin
+- [Download](../../releases/latest/download/tidy.sketchplugin.zip) the latest release of the plugin
 - Un-zip
 - Double-click on arrange-artboards-hierarchically.sketchplugin
 
