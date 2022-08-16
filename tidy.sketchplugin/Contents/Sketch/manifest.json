@@ -68,12 +68,12 @@
     ],
     "title": "Tidy"
   },
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Keep your sketch files Tidy.",
   "name": "Tidy",
   "identifier": "Tidy",
   "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://raw.githubusercontent.com/gbrunow/arrange-artboards-hierarchically/master/.appcast.xml",
+  "appcast": "https://raw.githubusercontent.com/gbrunow/tidy/master/.appcast.xml",
   "author": "Gui Brunow Gomes",
   "authorEmail": "gbrunow@outlook.com"
 }
