@@ -40,7 +40,7 @@ const arrange = (artboards, gutter) => {
                 maxHeight = Math.max(maxHeight, artboard.frame.height);
             }
         } else {
-            deltaX += gutter;
+            // deltaX += gutter;
         }
 
         for (const child of node.children) {
